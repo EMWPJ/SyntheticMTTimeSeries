@@ -1,4 +1,5 @@
-#Executable program and example
+Executable program and example
+-
 **Synthesize_MT_Timeseries.exe** Executable program
 **Config** Necessary configuration files
 **tmp** Temporary files

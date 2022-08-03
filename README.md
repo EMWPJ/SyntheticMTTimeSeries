@@ -1,8 +1,13 @@
-#Synthetic MT TimeSeries
+Synthetic MT TimeSeries
+=
 This is the implementation of a synthesizing Magnetotelluric (MT) time series method based on forward modeling.
-##Program language
+
+Program language
+-
 Delphi 10.3
-##Usage
+
+Usage
+-
 
 1. Build the project to get the executable
 2. Run **Synthesize_MT_Timeseries.exe**
@@ -16,6 +21,7 @@ Delphi 10.3
 6. Click **Generate Sites** to begin the synthesis. For each site, the synthesis process takes about a few minutes.
 
 
-##Executable program and example
+Executable program and example
+-
 
 See **Win64\Release**
