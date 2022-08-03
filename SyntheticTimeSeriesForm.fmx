@@ -1,0 +1,801 @@
+object FormSyntheticTimeseries: TFormSyntheticTimeseries
+  Left = 0
+  Top = 0
+  Caption = 'Synthesiz MT Time series'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 0
+  object PanelSite: TPanel
+    Align = Left
+    Size.Width = 200.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object ListBoxSites: TListBox
+      Align = Client
+      PopupMenu = PopupMenuSites
+      Size.Width = 200.000000000000000000
+      Size.Height = 271.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      DisableFocusEffect = True
+      DefaultItemStyles.ItemStyle = ''
+      DefaultItemStyles.GroupHeaderStyle = ''
+      DefaultItemStyles.GroupFooterStyle = ''
+      ShowCheckboxes = True
+      Viewport.Width = 196.000000000000000000
+      Viewport.Height = 267.000000000000000000
+    end
+    object PanelRotate: TPanel
+      Align = Bottom
+      Position.Y = 432.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      object LabelRotate: TLabel
+        Align = Left
+        Size.Width = 65.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Rotate'
+        TabOrder = 1
+      end
+      object SpinBoxRotate: TSpinBox
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        TabOrder = 2
+        Cursor = crIBeam
+        Min = -360.000000000000000000
+        Max = 360.000000000000000000
+        Size.Width = 135.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object PanelSegmentLength: TPanel
+      Align = Bottom
+      Position.Y = 288.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 5
+      object LabelSegmentLength: TLabel
+        Align = Left
+        Size.Width = 65.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Segment Length'
+        TabOrder = 1
+      end
+      object NumberBoxSegmentLength: TNumberBox
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        TabOrder = 2
+        Cursor = crIBeam
+        DecimalDigits = 0
+        Min = 1.000000000000000000
+        Value = 8.000000000000000000
+        ValueType = Float
+        TextSettings.HorzAlign = Center
+        VertIncrement = 1.000000000000000000
+        Size.Width = 135.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object PanelSourceScale: TPanel
+      Align = Bottom
+      Position.Y = 336.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 4
+      object LabelSourceScale: TLabel
+        Align = Left
+        Size.Width = 65.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Source Scale'
+        TabOrder = 1
+      end
+      object NumberBoxSourceScale: TNumberBox
+        Touch.InteractiveGestures = [LongTap, DoubleTap]
+        Align = Client
+        TabOrder = 2
+        Cursor = crIBeam
+        Min = 0.000099999997473788
+        Max = 100000.000000000000000000
+        Value = 1.000000000000000000
+        ValueType = Float
+        TextSettings.HorzAlign = Center
+        VertIncrement = 1.000000000000000000
+        Size.Width = 135.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+      end
+    end
+    object Panel2: TPanel
+      Align = Bottom
+      Position.Y = 384.000000000000000000
+      Size.Width = 200.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      object LabelSyntheticFunction: TLabel
+        Align = Left
+        Size.Width = 65.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.HorzAlign = Center
+        Text = 'Synthetic Function'
+        TabOrder = 1
+      end
+      object ComboBoxSyntheticFunction: TComboBox
+        Align = Client
+        Size.Width = 135.000000000000000000
+        Size.Height = 48.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+      end
+    end
+    object LabelSites: TLabel
+      Align = Top
+      Size.Width = 200.000000000000000000
+      Size.Height = 17.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.HorzAlign = Center
+      Text = 'Sites'
+      TabOrder = 6
+    end
+  end
+  object PanelTBLEdit: TPanel
+    Align = Client
+    Size.Width = 435.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object TabControlTBLSite: TTabControl
+      Align = Client
+      Size.Width = 435.000000000000000000
+      Size.Height = 480.000000000000000000
+      Size.PlatformDefault = False
+      TabIndex = 0
+      TabOrder = 0
+      TabPosition = PlatformDefault
+      Sizes = (
+        435s
+        454s)
+      object TBLTab: TTabItem
+        CustomIcon = <
+          item
+          end>
+        IsSelected = True
+        Size.Width = 39.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        StyleLookup = ''
+        TabOrder = 0
+        Text = 'TBL'
+        ExplicitSize.cx = 39.000000000000000000
+        ExplicitSize.cy = 26.000000000000000000
+        object PaneltblControl: TPanel
+          Align = Bottom
+          Position.Y = 346.000000000000000000
+          Size.Width = 435.000000000000000000
+          Size.Height = 35.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object CheckBoxPhoneixTimeseries: TCheckBox
+            Align = Left
+            IsChecked = True
+            Size.Width = 145.000000000000000000
+            Size.Height = 35.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            Text = 'Phoneix Time Series'
+          end
+        end
+        object ButtonGenerate: TButton
+          Align = Bottom
+          Position.Y = 381.000000000000000000
+          Size.Width = 435.000000000000000000
+          Size.Height = 73.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          Text = 'Generate Sites'
+          OnClick = ButtonGenerateClick
+        end
+        object GridPanelLayoutParameter: TGridPanelLayout
+          Align = Client
+          Size.Width = 435.000000000000000000
+          Size.Height = 346.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 12
+          ColumnCollection = <
+            item
+              Value = 25.000000000000010000
+            end
+            item
+              Value = 25.000000000000010000
+            end
+            item
+              Value = 25.000000000000010000
+            end
+            item
+              Value = 24.999999999999980000
+            end>
+          ControlCollection = <
+            item
+              Column = 0
+              Control = LabelSiteName
+              Row = 0
+            end
+            item
+              Column = 1
+              Control = EditSiteName
+              Row = 0
+            end
+            item
+              Column = 2
+              Control = LabelMTAMT
+              Row = 0
+            end
+            item
+              Column = 3
+              Control = SwitchMTAMT
+              Row = 0
+            end
+            item
+              Column = 0
+              Control = LabelBox
+              Row = 1
+            end
+            item
+              Column = 1
+              Control = EditBOX
+              Row = 1
+            end
+            item
+              Column = 2
+              Control = LabelHx
+              Row = 1
+            end
+            item
+              Column = 3
+              Control = EditHx
+              Row = 1
+            end
+            item
+              Column = 0
+              Control = LabelHy
+              Row = 2
+            end
+            item
+              Column = 1
+              Control = EditHy
+              Row = 2
+            end
+            item
+              Column = 2
+              Control = LabelHz
+              Row = 2
+            end
+            item
+              Column = 3
+              Control = EditHz
+              Row = 2
+            end
+            item
+              Column = 0
+              Control = LabelEXLength
+              Row = 3
+            end
+            item
+              Column = 1
+              Control = EditExLength
+              Row = 3
+            end
+            item
+              Column = 2
+              Control = LabelEyLength
+              Row = 3
+            end
+            item
+              Column = 3
+              Control = EditEyLength
+              Row = 3
+            end
+            item
+              Column = 0
+              Control = LabelInterval
+              Row = 4
+            end
+            item
+              Column = 1
+              Control = EditInterval
+              Row = 4
+            end
+            item
+              Column = 2
+              Control = LabelL2Records
+              Row = 4
+            end
+            item
+              Column = 3
+              Control = EditL2Records
+              Row = 4
+            end
+            item
+              Column = 0
+              Control = LabelL3Records
+              Row = 5
+            end
+            item
+              Column = 1
+              Control = EditL3Records
+              Row = 5
+            end
+            item
+              Column = 2
+              Control = LabelL4Records
+              Row = 5
+            end
+            item
+              Column = 3
+              Control = EditL4Records
+              Row = 5
+            end
+            item
+              Column = 0
+              Control = LabelBeginEnd
+              Row = 6
+            end
+            item
+              Column = 1
+              ColumnSpan = 3
+              Control = GridBeginEnd
+              Row = 6
+            end>
+          RowCollection = <
+            item
+              Value = 11.666666666666670000
+            end
+            item
+              Value = 11.666666666666670000
+            end
+            item
+              Value = 11.666666666666670000
+            end
+            item
+              Value = 11.666666666666660000
+            end
+            item
+              Value = 11.666666666666670000
+            end
+            item
+              Value = 11.666666666666670000
+            end
+            item
+              Value = 29.999999999999980000
+            end
+            item
+              SizeStyle = Auto
+            end>
+          object LabelSiteName: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366664886474610000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'Site Name'
+            TabOrder = 1
+          end
+          object EditSiteName: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 2
+            Text = 'TEST0000'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366664886474610000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelMTAMT: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366664886474610000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'MT/AMT'
+            TabOrder = 3
+          end
+          object SwitchMTAMT: TSwitch
+            Align = Client
+            IsChecked = False
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366664886474610000
+            Size.PlatformDefault = False
+            TabOrder = 4
+          end
+          object LabelBox: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366664886474610000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'BOX - CLB'
+            TabOrder = 5
+          end
+          object EditBOX: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 6
+            Text = '4884'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366664886474610000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelHx: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366664886474610000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'HX'
+            TabOrder = 7
+          end
+          object EditHx: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 8
+            Text = 'MT8C9003'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366664886474610000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelHy: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366661071777340000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'HY'
+            TabOrder = 9
+          end
+          object EditHy: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 10
+            Text = 'MT8C9003'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366661071777340000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelHz: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366661071777340000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'Hz'
+            TabOrder = 11
+          end
+          object EditHz: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 12
+            Text = 'MT8C9003'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366661071777340000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelEXLength: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'EX Length'
+            TabOrder = 13
+          end
+          object EditExLength: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 14
+            Text = '50'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelEyLength: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'Ey Length'
+            TabOrder = 15
+          end
+          object EditEyLength: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 16
+            Text = '50'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelInterval: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'Interval'
+            TabOrder = 17
+          end
+          object EditInterval: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 18
+            Text = '300'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelL2Records: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'Level 2 Records'
+            TabOrder = 19
+          end
+          object EditL2Records: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 20
+            Text = '2'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelL3Records: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'Level 3 Records'
+            TabOrder = 21
+          end
+          object EditL3Records: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 22
+            Text = '2'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelL4Records: TLabel
+            Align = Client
+            StyledSettings = [Family, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'Level 4 Records'
+            TabOrder = 23
+          end
+          object EditL4Records: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 24
+            Text = '16'
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Size.Width = 108.750000000000000000
+            Size.Height = 40.366668701171880000
+            Size.PlatformDefault = False
+            StyledSettings = [Family, FontColor]
+          end
+          object LabelBeginEnd: TLabel
+            Align = Client
+            StyledSettings = [Family, Style, FontColor]
+            Size.Width = 108.750000000000000000
+            Size.Height = 103.800003051757800000
+            Size.PlatformDefault = False
+            TextSettings.Font.Size = 16.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'Begin End'
+            TabOrder = 25
+          end
+          object GridBeginEnd: TGridPanelLayout
+            Align = Client
+            Size.Width = 326.250000000000000000
+            Size.Height = 103.800003051757800000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            ColumnCollection = <
+              item
+                Value = 49.999999999999990000
+              end
+              item
+                Value = 50.000000000000010000
+              end>
+            ControlCollection = <
+              item
+                Column = 0
+                Control = DateEditBegin
+                Row = 1
+              end
+              item
+                Column = 1
+                Control = DateEditEnd
+                Row = 1
+              end
+              item
+                Column = 0
+                Control = TimeEditBegin
+                Row = 2
+              end
+              item
+                Column = 1
+                Control = TimeEditEnd
+                Row = 2
+              end
+              item
+                Column = 0
+                Control = LabelBegin
+                Row = 0
+              end
+              item
+                Column = 1
+                Control = LabelEnd
+                Row = 0
+              end>
+            RowCollection = <
+              item
+                SizeStyle = Absolute
+                Value = 25.000000000000000000
+              end
+              item
+                Value = 50.000000000000000000
+              end
+              item
+                Value = 50.000000000000000000
+              end
+              item
+                SizeStyle = Auto
+              end
+              item
+                SizeStyle = Auto
+              end>
+            object DateEditBegin: TDateEdit
+              Date = 44562.000000000000000000
+              Align = Center
+              TabOrder = 0
+            end
+            object DateEditEnd: TDateEdit
+              Date = 44563.000000000000000000
+              Align = Center
+              TabOrder = 1
+            end
+            object TimeEditBegin: TTimeEdit
+              Time = 0.397112812500000000
+              TimeFormatKind = Long
+              Align = Center
+              TabOrder = 2
+            end
+            object TimeEditEnd: TTimeEdit
+              Time = 0.999988425925926000
+              TimeFormatKind = Long
+              Align = Center
+              TabOrder = 3
+            end
+            object LabelBegin: TLabel
+              Align = Center
+              TextSettings.HorzAlign = Center
+              Text = 'Begin'
+              TabOrder = 4
+            end
+            object LabelEnd: TLabel
+              Align = Center
+              TextSettings.HorzAlign = Center
+              Text = 'End'
+              TabOrder = 5
+            end
+          end
+        end
+      end
+    end
+  end
+  object Splitter4: TSplitter
+    Align = Left
+    Cursor = crHSplit
+    MinSize = 20.000000000000000000
+    Position.X = 200.000000000000000000
+    Size.Width = 5.000000000000000000
+    Size.Height = 480.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object PopupMenuSites: TPopupMenu
+    Left = 64
+    Top = 73
+    object MenuLoadModEMSites: TMenuItem
+      Text = 'Load ModEM Sites'
+      OnClick = MenuLoadModEMSitesClick
+    end
+    object MenuClearSites: TMenuItem
+      Text = 'Clear'
+      OnClick = MenuClearSitesClick
+    end
+  end
+  object OpenDialogModem: TOpenDialog
+    Left = 136
+    Top = 105
+  end
+end
