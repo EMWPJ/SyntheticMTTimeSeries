@@ -13,7 +13,7 @@ Build the project to get the executable
 
 Run **Synthesize_MT_Timeseries.exe**
 
-Right-click under Sites to import the forward response (obtained by forward acting, see https://github.com/EMWPJ/Modified-ModEM-with-output-electromagnetic-field-values for more).
+Right-click under Sites to import the forward response file(obtained by forward acting, see https://github.com/EMWPJ/Modified-ModEM-with-output-electromagnetic-field-values for more). Select the measuring points to be synthesized.
 
 Set synthetic time series parameters:
 
@@ -25,10 +25,11 @@ Set synthetic time series parameters:
 
     The rotation Angle of the observation direction
 
-Observation system Parameters
+Set Observation system Parameters.
+
+Select the output in Phoenix format or text format.
 
 Click **Generate Sites** to begin the synthesis. For each site, the synthesis process takes about a few minutes.
-
 
 
 Executable program and example
