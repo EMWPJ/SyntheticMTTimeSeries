@@ -13,7 +13,7 @@ Build the project to get the executable
 
 Run **Synthesize_MT_Timeseries.exe**
 
-Right-click under Sites to import the forward response file(obtained by forward acting, see https://github.com/EMWPJ/Modified-ModEM-with-output-electromagnetic-field-values for more). Select the measuring points to be synthesized.
+Right-click under Sites to import the forward response file(obtained by forward acting, see https://github.com/EMWPJ/Modified-ModEM-with-output-electromagnetic-field-values for more). Select the sites to be synthesized.
 
 Set synthetic time series parameters:
 
