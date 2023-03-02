@@ -6,8 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes,
   System.Variants, FMX.Types, System.Generics.Collections,
   System.Generics.Defaults,
-  WTypes, System.DateUtils,
-  FMXTee.Tree, FMX.Menus,
+  WTypes, System.DateUtils, FMX.Menus,
   Phoenix, PhoenixTypes, MathFunctions;
 
 type

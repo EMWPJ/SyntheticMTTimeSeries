@@ -432,7 +432,7 @@ begin
   begin
     Sleep(500);
     Inc(Index);
-    if Index > 5 then
+    if Index > 20 then
     begin
       raise Exception.Create('Syscal Error');
       Break;

@@ -1,6 +1,12 @@
-Synthetic MT TimeSeries
+Synthetic MT TimeSeries (SMTTS)
 =
 This is the implementation of a synthesizing Magnetotelluric (MT) time series method based on forward modeling.
+
+Method & Reference
+-
+Wang P, Chen X and Zhang Y (2023) Synthesizing magnetotelluric time series based on forward modeling. Front. Earth Sci. 11:1086749. doi: 10.3389/feart.2023.1086749
+
+https://www.frontiersin.org/articles/10.3389/feart.2023.1086749/full
 
 Program language
 -
